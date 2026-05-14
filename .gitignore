@@ -1,0 +1,91 @@
+# ===========================
+# BACKEND — Spring Boot / Maven
+# ===========================
+
+# Compiled output
+backend/target/
+
+# Maven wrapper
+backend/.mvn/wrapper/maven-wrapper.jar
+
+# IntelliJ IDEA
+backend/.idea/
+backend/*.iml
+backend/*.iws
+backend/*.ipr
+backend/.idea/workspace.xml
+backend/.idea/tasks.xml
+
+# Eclipse
+backend/.classpath
+backend/.project
+backend/.settings/
+
+# VS Code
+backend/.vscode/
+
+# Logs
+backend/logs/
+backend/*.log
+
+# Environment / secrets
+backend/src/main/resources/application-local.yml
+backend/src/main/resources/application-prod.yml
+
+
+# ===========================
+# FRONTEND — React / Node
+# ===========================
+
+# Dependencies — never upload these (200MB+)
+frontend/node_modules/
+
+# Production build output
+frontend/dist/
+frontend/build/
+
+# Environment variables — may contain secrets
+frontend/.env
+frontend/.env.local
+frontend/.env.production
+frontend/.env.development
+
+# Vite cache
+frontend/.vite/
+
+# VS Code
+frontend/.vscode/
+
+
+# ===========================
+# OPERATING SYSTEM FILES
+# ===========================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+
+# ===========================
+# MISC
+# ===========================
+
+# Zip files (don't upload old zips)
+*.zip
+*.tar.gz
+
+# Editor backups
+*.swp
+*.swo
+*.bak
