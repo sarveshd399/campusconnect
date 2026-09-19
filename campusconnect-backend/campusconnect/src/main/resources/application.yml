@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/campusconnect
-    username: postgres
-    password: root
+    url: jdbc:postgresql://ep-lucky-tree-b37fehnz-pooler.c-4.ap-southeast-1.aws.neon.tech/campusconnect?sslmode=require&channel_binding=require
+    username: campusconnect_owner
+    password: npg_DFBkvylJ2tb6
     driver-class-name: org.postgresql.Driver
 
   jpa:
