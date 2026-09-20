@@ -32,5 +32,8 @@ export const leaveCommunity = (id) => api.post(`/communities/${id}/leave`)
 export const getMessages = (communityId) =>
   api.get(`/communities/${communityId}/messages`)
 
+export const sendMessage = (communityId, content) =>
+  api.post(`/communities/${communityId}/messages`, { content })
+
 // ── User ──────────────────────────────────────────────
 export const getProfile = () => api.get('/users/me')
