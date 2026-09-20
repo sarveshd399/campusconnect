@@ -2,9 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { Client } from '@stomp/stompjs'
 import SockJS from 'sockjs-client/dist/sockjs.min.js'
-import { getMessages, getCommunity } from '../services/api'
+import { getMessages, getCommunity, sendMessage as sendMessageApi } from '../services/api'
 import { useAuth } from '../context/AuthContext'
-import axios from 'axios'
 
 export default function Chat() {
   const { id }   = useParams()
@@ -29,7 +28,7 @@ export default function Chat() {
   // Connect WebSocket for RECEIVING messages only
   useEffect(() => {
     const client = new Client({
-      webSocketFactory: () => new SockJS('/ws'),
+      webSocketFactory: () => new SockJS(`${import.meta.env.VITE_API_URL}/ws`),
       onConnect: () => {
         setConnected(true)
         // Subscribe to this community's live messages
@@ -66,12 +65,7 @@ export default function Chat() {
     setSending(true)
 
     try {
-      const token = localStorage.getItem('token')
-      await axios.post(
-        `/api/communities/${id}/messages`,
-        { content },
-        { headers: { Authorization: `Bearer ${token}` } }
-      )
+      await sendMessageApi(id, content)
       // Backend will broadcast to /topic/community/{id}
       // WebSocket subscription above will receive it and add to messages
     } catch (err) {
